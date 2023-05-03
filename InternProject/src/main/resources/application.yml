@@ -1,0 +1,18 @@
+server:
+  servlet:
+    context-path: /tasks
+  port: 8088
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:postgresql://localhost:5432/task
+    username: postgres
+    password: zalupa
+    driverClassName: org.postgresql.Driver
+  sql:
+    init:
+      platform: postgres
