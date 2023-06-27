@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.NoArgsConstructor;
+import java.util.Objects;
 
 @Entity
 @NoArgsConstructor
@@ -53,5 +54,28 @@ public class Task {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return Objects.equals(taskId, task.taskId) && Objects.equals(title, task.title) && Objects.equals(text, task.text) && Objects.equals(answer, task.answer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskId, title, text, answer);
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "taskId=" + taskId +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", answer='" + answer + '\'' +
+                '}';
     }
 }

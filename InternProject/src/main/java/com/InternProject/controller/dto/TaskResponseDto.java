@@ -19,11 +19,10 @@ public class TaskResponseDto {
         answer = task.getAnswer();
     }
 
-    public TaskResponseDto(Long taskId, String title, String text, String answer) {
-        this.taskId = taskId;
-        this.title = title;
-        this.text = text;
-        this.answer = answer;
+    public TaskResponseDto(TaskRequestDto taskRequestDto) {
+        this.title = taskRequestDto.getTitle();
+        this.text = taskRequestDto.getText();
+        this.answer = taskRequestDto.getAnswer();
     }
 
     public Long getTaskId() {
